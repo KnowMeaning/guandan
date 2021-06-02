@@ -89,12 +89,16 @@ void robot::ThinkForPlayHand()
 
             }
         }
-        else if(punchPlayer==friendplayer&&p_type==Type_Bomb){//队友出炸不管
+        else if(punchPlayer==friendplayer){//队友不管
             HandCard(Cards());
         }
         else {
-            if(Hand(oucards).if_beat(hand)){
-                HandCard(oucards);
+            Cards cards;
+            for(int i=0;i<cardList.size();i++){
+                cards.Add(cardList[i]);
+            }
+            if(Hand(cards).if_beat(hand)){
+                HandCard(cards);
             }
             else if(p_type==Type_common_Third){
                 int i=0;
