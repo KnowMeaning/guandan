@@ -21,11 +21,6 @@ enum GameStatus{
     PlayingHandStatus,//出牌阶段
     Endingstatus
 };
-enum PlayerStatus{
-    ThinkingForCallLordStatus,
-    ThinkingForPlayHandStatus,
-    ThinkingForTributeStatus
-};
 
 class GamePanel : public QWidget
 {
@@ -87,7 +82,6 @@ protected:
     void initcontrol();
     void initplayers();
     void initconnect();
-    void setnowplayer(Player* player);
 private:
     GameStatus status;
     int NowMoveStep;

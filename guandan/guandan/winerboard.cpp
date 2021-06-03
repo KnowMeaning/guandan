@@ -6,6 +6,16 @@ WinerBoard::WinerBoard(QWidget *parent) :
     ui(new Ui::WinerBoard)
 {
     ui->setupUi(this);
+    QPalette color;
+    color.setColor(QPalette::WindowText, Qt::white);
+    ui->label->setPalette(color);
+    ui->label_2->setPalette(color);
+    ui->label_3->setPalette(color);
+    ui->label_4->setPalette(color);
+    ui->Lastname->setPalette(color);
+    ui->Firstname->setPalette(color);
+    ui->Thirdname->setPalette(color);
+    ui->Secondname->setPalette(color);
 }
 
 WinerBoard::~WinerBoard()

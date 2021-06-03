@@ -28,7 +28,7 @@ GamePanel::GamePanel(QWidget *parent) : QWidget(parent)
 }
 void GamePanel::paintEvent(QPaintEvent* event)//设置背景
 {
-    static QPixmap bk(":/res/table.png");
+    static QPixmap bk(":/res/table.jpg");
     QPainter painter(this);
     painter.drawPixmap(rect(),bk);
 }
@@ -653,7 +653,7 @@ void GamePanel::startplayhand()
     status=PlayingHandStatus;
     main_baseCard->hide();
     main_movingCard->hide();
-    setnowplayer(nowplayer->GetNextPlayer());
+    nowplayer=nowplayer->GetNextPlayer();
     HideLastCards(nowplayer);
 
     while(nowplayer->getcardssize()==0){
@@ -667,7 +667,7 @@ void GamePanel::startplayhand()
                 }
                 break;
             }
-            setnowplayer(nowplayer->GetNextPlayer());
+            nowplayer=nowplayer->GetNextPlayer();
             HideLastCards(nowplayer);
     }
     if(nowplayer==user){
@@ -863,11 +863,6 @@ void GamePanel::StartTribute()
         }
     }
 }
-void GamePanel::setnowplayer(Player *player)
-{
-    nowplayer=player;
-}
-
 void GamePanel::passbuttonclick()
 {
     if(nowplayer!=user)return;//不是玩家时跳过
@@ -940,9 +935,9 @@ void GamePanel::startbuttonclick()//初始化并打开发牌计时器
     playerContextMap[friend_robot].info->hide();
     playerContextMap[user].info->hide();
 
-    playerContextMap[left_robot].isFrontSide=true;
-    playerContextMap[right_robot].isFrontSide=true;
-    playerContextMap[friend_robot].isFrontSide=true;
+    playerContextMap[left_robot].isFrontSide=false;
+    playerContextMap[right_robot].isFrontSide=false;
+    playerContextMap[friend_robot].isFrontSide=false;
     playerContextMap[user].isFrontSide=true;
 
     left_robot->clearcard();
@@ -987,9 +982,9 @@ void GamePanel::continuebuttonclick()
     playerContextMap[friend_robot].info->hide();
     playerContextMap[user].info->hide();
 
-    playerContextMap[left_robot].isFrontSide=true;
-    playerContextMap[right_robot].isFrontSide=true;
-    playerContextMap[friend_robot].isFrontSide=true;
+    playerContextMap[left_robot].isFrontSide=false;
+    playerContextMap[right_robot].isFrontSide=false;
+    playerContextMap[friend_robot].isFrontSide=false;
     playerContextMap[user].isFrontSide=true;
 
     left_robot->clearcard();
@@ -1147,13 +1142,12 @@ void GamePanel::handending(Player *player)
 
 void GamePanel::StartPickingCard()//发牌动画，并将随机牌发到玩家手中触发pickcard
 {
-    Player* NowPlayer=nowplayer;
     if(NowMoveStep>=100)	//牌已移动到末端
         {
             Card card=all_cards.TakeRandomCard();
-            NowPlayer->PickCard(card);
-            ShowPickingCardStep(NowPlayer,NowMoveStep);
-            setnowplayer(NowPlayer->GetNextPlayer());
+            nowplayer->PickCard(card);
+            ShowPickingCardStep(nowplayer,NowMoveStep);
+            nowplayer=nowplayer->GetNextPlayer();
             NowMoveStep=0;
             if(all_cards.Count()==0)	//摸牌结束
             {
@@ -1174,7 +1168,7 @@ void GamePanel::StartPickingCard()//发牌动画，并将随机牌发到玩家�
             }
     }
     else{
-        ShowPickingCardStep(NowPlayer,NowMoveStep);
+        ShowPickingCardStep(nowplayer,NowMoveStep);
         NowMoveStep+=14;
 }
 }

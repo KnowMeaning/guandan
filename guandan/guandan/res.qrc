@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>res/card.png</file>
-        <file>res/table.png</file>
+        <file>res/table.jpg</file>
     </qresource>
 </RCC>

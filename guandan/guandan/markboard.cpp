@@ -6,11 +6,18 @@ MarkBoard::MarkBoard(QWidget *parent) :
     ui(new Ui::MarkBoard)
 {
     ui->setupUi(this);
+    QPalette color;
+    color.setColor(QPalette::WindowText, Qt::white);
+    ui->Mark1->setPalette(color);
+    ui->Mark2->setPalette(color);
+    ui->label->setPalette(color);
+    ui->label_2->setPalette(color);
 }
 
 MarkBoard::~MarkBoard()
 {
     delete ui;
+
 }
 
 void MarkBoard::setmark(int users,int robots)

@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     main_gamePanel=new GamePanel(this);
-    setFixedSize(1000,800);
+    setFixedSize(1920*8/11,1080*8/11);
     setWindowTitle(tr("淮安掼蛋"));
 }
 

@@ -76,7 +76,7 @@ inline bool operator <(const Card& left, const Card& right)
 //重载运算符<（先比点数，后比花色）
 inline uint qHash(const Card& card)
 {
-    return card.valve * 100 + card.cardsuit*10+card.deck;
+    return card.cardpoint*1000+card.valve * 100 + card.cardsuit*10+card.deck;
 }
 
 //重载使容器可以自动排序
@@ -114,8 +114,8 @@ public:
     enum SortType
     {
         NoSort,
-        Asc,
-        Desc
+        Asc,//逆序
+        Desc//顺序
     };
     bool operator ==(const Cards& right);
     void Add(const Cards& cards);//初始化容器

@@ -159,8 +159,8 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_res.cpp
 debug/qrc_res.cpp: ../guandan/res.qrc \
 		../../../QT/5.12.5/mingw73_32/bin/rcc.exe \
-		../guandan/res/table.png \
-		../guandan/res/card.png
+		../guandan/res/card.png \
+		../guandan/res/table.jpg
 	D:\STUDY\QT\5.12.5\mingw73_32\bin\rcc.exe -name res ..\guandan\res.qrc -o debug\qrc_res.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -1889,6 +1889,21 @@ debug/mainwindow.o: ../guandan/mainwindow.cpp ../guandan/mainwindow.h \
 		../../../QT/5.12.5/mingw73_32/include/QtCore/qbasictimer.h \
 		../guandan/winerboard.h \
 		ui_mainwindow.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/QVariant \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QApplication \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qeventloop.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QMenuBar \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qmenubar.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QStatusBar \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qstatusbar.h \
 		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QDialog \
 		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\guandan\mainwindow.cpp
@@ -1997,7 +2012,23 @@ debug/markboard.o: ../guandan/markboard.cpp ../guandan/markboard.h \
 		../../../QT/5.12.5/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QT/5.12.5/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QT/5.12.5/mingw73_32/include/QtGui/qtouchdevice.h \
-		ui_markboard.h
+		ui_markboard.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/QVariant \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QApplication \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qeventloop.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QGridLayout \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QLabel \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\markboard.o ..\guandan\markboard.cpp
 
 debug/player.o: ../guandan/player.cpp ../guandan/player.h \
@@ -2475,7 +2506,23 @@ debug/winerboard.o: ../guandan/winerboard.cpp ../guandan/winerboard.h \
 		../../../QT/5.12.5/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QT/5.12.5/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QT/5.12.5/mingw73_32/include/QtGui/qtouchdevice.h \
-		ui_winerboard.h
+		ui_winerboard.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/QVariant \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QApplication \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtCore/qeventloop.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../QT/5.12.5/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QGridLayout \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/QLabel \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QT/5.12.5/mingw73_32/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\winerboard.o ..\guandan\winerboard.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 

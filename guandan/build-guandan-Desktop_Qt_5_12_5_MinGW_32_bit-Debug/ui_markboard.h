@@ -40,6 +40,30 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(gridLayoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        QBrush brush1(QColor(255, 255, 0, 128));
+        brush1.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush1);
+#endif
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush1);
+#endif
+        QBrush brush2(QColor(120, 120, 120, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush2);
+        QBrush brush3(QColor(0, 0, 0, 128));
+        brush3.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush3);
+#endif
+        label->setPalette(palette);
+        label->setFrameShadow(QFrame::Plain);
+        label->setScaledContents(false);
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
