@@ -1,7 +1,8 @@
 #include"gamepanel.h"
 #include<qpainter.h>
 #include<QDebug>
-#include<QtDebug>
+#include<QMessageBox>
+#include<QDialog>
 #include<qpainter.h>
 #include<QHBoxLayout>
 #include<qpixmap.h>
@@ -371,15 +372,15 @@ void GamePanel::initplayers()//玩家设置，将玩家与用户框连接
         PlayerContext context;
 
         context.cardsAlign=Vertical;
-        context.isFrontSide=true;
+        context.isFrontSide=false;
         playerContextMap.insert(left_robot,context);
     //左机器人
         context.cardsAlign=Vertical;
-        context.isFrontSide=true;
+        context.isFrontSide=false;
         playerContextMap.insert(right_robot,context);
     //右机器人
         context.cardsAlign=Horizontal;
-        context.isFrontSide=true;
+        context.isFrontSide=false;
         playerContextMap.insert(friend_robot,context);
     //friend
         context.cardsAlign=Horizontal;
@@ -982,9 +983,9 @@ void GamePanel::continuebuttonclick()
     playerContextMap[friend_robot].info->hide();
     playerContextMap[user].info->hide();
 
-    playerContextMap[left_robot].isFrontSide=false;
-    playerContextMap[right_robot].isFrontSide=false;
-    playerContextMap[friend_robot].isFrontSide=false;
+    playerContextMap[left_robot].isFrontSide=true;
+    playerContextMap[right_robot].isFrontSide=true;
+    playerContextMap[friend_robot].isFrontSide=true;
     playerContextMap[user].isFrontSide=true;
 
     left_robot->clearcard();
@@ -1096,6 +1097,11 @@ void GamePanel::upmark(int mark,int a)
 {
     if(mark==1){
         if(mark1==12&&a>1){
+            QMessageBox message(this);
+            message.about(this,tr("winer"),first->GetName());
+            message.exec();
+            mark1=0;mark2=0;startbutton->show();
+            main_winerBoard->setname("",5);
             //胜利
         }
         else if((mark1+a)>=12){
@@ -1107,6 +1113,11 @@ void GamePanel::upmark(int mark,int a)
     }
     else if(mark==2){
         if(mark2==12&&a>1){
+            QMessageBox message(this);
+            message.about(this,tr("winer"),first->GetName());
+            message.exec();
+            mark1=0;mark2=0;startbutton->show();
+            main_winerBoard->setname("",5);
             //胜利
         }
         else if((mark2+a)>=12){

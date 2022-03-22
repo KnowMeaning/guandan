@@ -33,5 +33,10 @@ void WinerBoard::setname(QString name, int a)
         case 2:ui->Secondname->setText(name);break;
         case 3:ui->Thirdname->setText(name);break;
         case 4:ui->Lastname->setText(name);break;
+        case 5:
+               ui->Firstname->setText("");
+               ui->Secondname->setText("");
+               ui->Thirdname->setText("");
+               ui->Lastname->setText("");break;
     }
 }

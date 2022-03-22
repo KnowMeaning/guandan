@@ -108,12 +108,12 @@ void Hand::Judge()
             }
             else cardstype=Type_Pass;
         }
-        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){
+        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){
             cardstype=Type_common_Single;
             if(OneCard[0]==main_card-1)BaseValve=125;
             else BaseValve=OneCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0){
+        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){
             if(TwoCard[0]==Card_BG||TwoCard[0]==Card_SG){
                 return;
             }
@@ -122,18 +122,18 @@ void Hand::Judge()
                 else BaseValve=TwoCard[0]*10;
                 }
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0){
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){
             cardstype=Type_common_Third;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==1&&Bomb.size()==0){
+        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){
             cardstype=Type_common_TfollowD;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
             Extra_Card=2;
         }
-        if(OneCard.size()==5&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){
+        if(OneCard.size()==5&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){
             for(int a=0;a<5;a++){
                 int k=a;
                 for(int b=a+1;b<5;b++){
@@ -166,7 +166,7 @@ void Hand::Judge()
                 bombvalve=Bomb_StraightFlush;
             }
             }}
-        if(OneCard.size()==0&&TwoCard.size()==3&&ThreeCard.size()==0&&Bomb.size()==0){
+        if(OneCard.size()==0&&TwoCard.size()==3&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){
             for(int a=0;a<3;a++){
                 int k=a;
                 for(int b=a+1;b<3;b++){
@@ -186,7 +186,7 @@ void Hand::Judge()
             cardstype=Type_common_TStraight;
         }
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1){
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1&&Goust.size()==0){
             if(Bomb[0]==main_card-1)BaseValve=125;
             else BaseValve=Bomb[0]*10;
             cardstype=Type_Bomb;
@@ -197,27 +197,27 @@ void Hand::Judge()
             }
         }
     else if(anyknumber==1){
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//单张
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//单张
             cardstype=Type_common_Single;
             BaseValve=125;
         }
-        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//对子
+        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//对子
             cardstype=Type_common_Double;
             if(OneCard[0]==main_card-1)BaseValve=125;
             else BaseValve=OneCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0){//三张
+        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三张
             cardstype=Type_common_Third;
             if(TwoCard[0]==main_card-1)BaseValve=125;
             else BaseValve=TwoCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0){//炸弹
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){//炸弹
             cardstype=Type_Bomb;
             bombvalve=(BombValve)4;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1){//炸弹
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1&&Goust.size()==0){//炸弹
             cardstype=Type_Bomb;
             if(Bomb[0]==main_card-1)BaseValve=125;
             else BaseValve=Bomb[0]*10;
@@ -226,7 +226,7 @@ void Hand::Judge()
             }
             bombvalve=(BombValve)cardnumber;
         }
-        if(OneCard.size()==4&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//顺子
+        if(OneCard.size()==4&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//顺子
             int x=2;
             for(int a=0;a<4;a++){
                 int k=a;
@@ -280,17 +280,17 @@ void Hand::Judge()
                 }
             }
         }
-        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0){//三带二1
+        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){//三带二1
             cardstype=Type_common_TfollowD;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0){//三带二2
+        if(OneCard.size()==0&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三带二2
             cardstype=Type_common_TfollowD;
             if(TwoCard[1]==main_card-1||TwoCard[0]==main_card-1)BaseValve=125;
             else BaseValve=TwoCard[1]*10;
         }
-        if(OneCard.size()==1&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0){//三连对
+        if(OneCard.size()==1&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三连对
             CardPoint k[3];
             k[0]=OneCard[0];
             k[1]=TwoCard[0];
@@ -316,35 +316,35 @@ void Hand::Judge()
     }
     }
     else if(anyknumber==2){
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//对子
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//对子
             cardstype=Type_common_Double;
             BaseValve=125;
         }
-        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//三张
+        if(OneCard.size()==1&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三张
             cardstype=Type_common_Third;
             if(OneCard[0]==main_card-1)BaseValve=125;
             else BaseValve=OneCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0){//炸弹1
+        if(OneCard.size()==0&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//炸弹1
             cardstype=Type_Bomb;
             bombvalve=(BombValve)4;
             if(TwoCard[0]==main_card-1)BaseValve=125;
             else BaseValve=TwoCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0){//炸弹2
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){//炸弹2
             cardstype=Type_Bomb;
             bombvalve=(BombValve)5;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1){//炸弹3
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==1&&Goust.size()==0){//炸弹3
             cardstype=Type_Bomb;
             if(Bomb[0]==main_card-1)BaseValve=125;
             else BaseValve=Bomb[0]*10;
                 cardnumber++;
             bombvalve=(BombValve)cardnumber;
         }
-        if(OneCard.size()==0&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0){//三顺1
+        if(OneCard.size()==0&&TwoCard.size()==2&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三顺1
             if(TwoCard[1]==Card_A&&(TwoCard[0]==Card_2||TwoCard[0]==Card_3)){
                 cardstype=Type_common_TStraight;
                 BaseValve=Card_3*10;
@@ -358,7 +358,7 @@ void Hand::Judge()
                 BaseValve=TwoCard[1]*10;
             }
         }
-        if(OneCard.size()==2&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0){//三顺2
+        if(OneCard.size()==2&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三顺2
             CardPoint k[3];
             k[0]=OneCard[0];
             k[1]=TwoCard[0];
@@ -382,17 +382,17 @@ void Hand::Judge()
                 cardstype=Type_common_TStraight;
             }
         }
-        if(OneCard.size()==1&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0){//三带二1
+        if(OneCard.size()==1&&TwoCard.size()==1&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//三带二1
             cardstype=Type_common_TfollowD;
             if(TwoCard[0]==main_card-1)BaseValve=125;
             else BaseValve=TwoCard[0]*10;
         }
-        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0){//三带二2
+        if(OneCard.size()==0&&TwoCard.size()==0&&ThreeCard.size()==1&&Bomb.size()==0&&Goust.size()==0){//三带二2
             cardstype=Type_common_TfollowD;
             if(ThreeCard[0]==main_card-1)BaseValve=125;
             else BaseValve=ThreeCard[0]*10;
         }
-        if(OneCard.size()==3&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0){//顺子
+        if(OneCard.size()==3&&TwoCard.size()==0&&ThreeCard.size()==0&&Bomb.size()==0&&Goust.size()==0){//顺子
             if(OneCard[2]==Card_A&&OneCard[0]<=Card_5&&OneCard[1]<=Card_5){
                 if(ifSameSuit==0){
                     BaseValve=Card_5*10;
